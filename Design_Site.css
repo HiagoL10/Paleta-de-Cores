@@ -256,4 +256,53 @@ body {
 .input-grupo button#conta-gotas-btn svg {
     width: 20px;
     height: 20px;
+
+}
+
+/*Ajustar formato em telas menores */
+@media (max-width: 600px) {
+
+    /* Ajusta os cards principais */
+    .funcionalidade-card {
+        padding: 20px 15px; /* Menos preenchimento lateral */
+        margin: 20px auto;  /* Menos margem */
+    }
+
+    /* Empilha os seletores de cor */
+    .grupo-seletor {
+        flex-direction: column; /* Muda a direção do flex para vertical */
+        gap: 20px;              /* Ajusta o espaço entre eles */
+    }
+
+    /* Reduz o tamanho dos seletores */
+    #circulo-cromatico, #quadrado {
+        width: 200px;  /* Um pouco menor para caber melhor */
+        height: 200px;
+    }
+
+    /* Empilha os botões e o input */
+    .input-grupo {
+        flex-direction: column; /* Coloca input e botões em pilha */
+        gap: 15px;
+        align-items: center; /* Centraliza a pilha */
+    }
+
+    /* Faz os inputs e botões ocuparem uma largura razoável */
+    .input-grupo input[type="text"],
+    .input-grupo button {
+        width: 90%; /* Ocupa 90% da largura do card */
+        margin: 0;  /* Remove margens laterais antigas */
+    }
+
+    /* Ajusta o botão do conta-gotas */
+    .input-grupo button#conta-gotas-btn {
+        padding: 8px; /* Ajusta o padding */
+        line-height: 1.2; /* Garante que o ícone não seja cortado */
+    }
+
+    /* Ajusta os cards de resultado */
+    .card-cor-resultado .bloco-cor-display {
+        width: 80px;  /* Deixa os blocos de resultado menores */
+        height: 80px;
+    }
 }
