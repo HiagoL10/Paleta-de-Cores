@@ -1,0 +1,259 @@
+/* ===================================================================
+   CONFIGURAÇÃO GERAL (BODY E VÍDEO)
+   =================================================================== */
+body {
+    text-align: center;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#video-background {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: contain; 
+}
+
+/* ===================================================================
+   CARDS PRINCIPAIS
+   =================================================================== */
+.funcionalidade-card {
+    background-color: #4d4b4b;
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.funcionalidade-card h2, .funcionalidade-card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* ===================================================================
+   CARD 1: SELETOR DE COR
+   =================================================================== */
+
+/* --- 1.1 Seletores Visuais (Círculo e Quadrado) --- */
+.grupo-seletor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px auto;
+}
+
+.area-selecionada {
+    position: relative;
+    display: inline-block;
+}
+
+#circulo-cromatico, #quadrado {
+    width: 220px;
+    height: 220px;
+    cursor: crosshair;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#circulo-cromatico {
+    border-radius: 50%;
+}
+
+#marcador-cor, #marcador-saturacao {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: left 0.08s ease, top 0.08s ease;
+}
+
+/* --- 1.2 Centro de Controle (Cor Base e Ações) --- */
+.controle-cor-base {
+    margin-top: 30px;
+}
+
+/* O display visual da cor selecionada (RGB) */
+#selecao {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+    background: #333; /* Cor de fundo escura */
+    border: 1px solid #555;
+    display: inline-block;
+    transition: background 0.2s ease;
+    margin-bottom: 20px; /* Espaço antes do input */
+    min-width: 150px;
+}
+
+/* Grupo de input e botões */
+.input-grupo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+}
+.input-grupo input[type="text"] {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    background: #555;
+    color: white;
+    font-size: 1em;
+}
+.input-grupo button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* --- 1.3 Seção de Resultados (Complementar e Análogas) --- */
+#container-resultados {
+    margin-top: 40px;
+    border-top: 1px solid #666; /* Linha divisória */
+    padding-top: 30px;
+}
+
+/* Container para os resultados análogos */
+#analogas-resultado-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+#coresAnalogasList {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* NOVO: Estilo de "Card de Cor" Padrão */
+/* Será usado por AMBAS as funções (complementar e análogas) */
+.card-cor-resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.card-cor-resultado .bloco-cor-display {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.card-cor-resultado .hex-texto-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    font-weight: bold;
+    user-select: text;
+}
+
+
+/* ===================================================================
+   CARD 2: EXTRATOR DE PALETA
+   =================================================================== */
+       
+#controles-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+    margin: 25px auto;
+    padding: 0 15px;
+}
+       
+#labelInputImagem {
+    background-color: #555;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #777;
+    white-space: nowrap; 
+}
+
+#controles-imagem #nomeArquivo {
+    margin-left: 10px; 
+    font-size: 14px;
+    color: #bbb;
+}
+
+#imgVisualizacao {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+/* Paleta de cores extraída */
+#paletaCores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+    padding: 20px 0;
+    min-height: 100px;
+    align-items: center;
+}
+
+#paletaCoresMensagem {
+    margin: 0;
+    color: #ccc;
+}
+
+/* Bloco de cor (Extrator) */
+.bloco-cor {
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Texto HEX (Extrator) */
+.hex-texto {
+    color: white;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+    background: none;
+    padding: 0;
+    user-select: text; 
+}
+
+.input-grupo button#conta-gotas-btn {
+    padding: 6px 8px; 
+    line-height: 0; 
+    margin-right: -5px; 
+}
+
+/* Ajuste o tamanho do SVG para 20px */
+.input-grupo button#conta-gotas-btn svg {
+    width: 20px;
+    height: 20px;
+}

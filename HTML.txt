@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletor de Cores e Extrator de Paleta</title>
+    
+    <link rel="stylesheet" href="Design_Site.css">
+
+</head>
+
+<body>
+
+    <video id="video-background" autoplay muted loop playsinline>
+        <source src="fundo_site.mp4" type="video/mp4">
+    </video>
+    
+<div class="funcionalidade-card">
+    <h2>1. Seletor de Cores + Paletas</h2>
+    
+    <div class="grupo-seletor">
+        <div class="area-selecionada">
+            <canvas id="circulo-cromatico"></canvas>
+            <div id="marcador-cor"></div>
+        </div>
+        <div class="area-selecionada">
+            <canvas id="quadrado"></canvas>
+            <div id="marcador-saturacao"></div>
+        </div>
+    </div>
+
+    <div class="controle-cor-base">
+        <div id="selecao">Nenhuma cor</div>
+        
+        <div class="input-grupo">
+            <input type="text" id="hex" name="hex" placeholder="escreva uma cor">
+
+            <button id="conta-gotas-btn" title="Selecionar cor da tela">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" />
+                </svg>
+            </button>
+
+            <button onclick="complemento()">complemento</button>
+            <button onclick="iniciarAnalogas()">análogas</button> 
+            
+        </div>
+    </div>
+
+    <div id="container-resultados">
+        
+        <div id="complementar-resultado-container">
+            </div>
+        
+        <div id="analogas-resultado-container">
+            <p id="analogas-titulo" style="display: none;">Cores Análogas:</p>
+            <div id="coresAnalogasList">
+                </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="funcionalidade-card">
+    <h2>2. Extrator de Paleta de Imagem</h2>
+    <p>Selecione uma imagem para descobrir as cores predominantes.</p>
+    
+    <div id="controles-imagem">
+        <input type="file" id="inputImagem" accept="image/*" style="display: none;">
+        <label for="inputImagem" id="labelInputImagem">Escolher Arquivo</label>
+        <span id="nomeArquivo">Nenhum arquivo escolhido</span>
+    </div>
+
+    <section id="visualizacao-extrator">
+        <img id="imgVisualizacao" src="#" alt="Pré-visualização da Imagem" style="display: none;" crossorigin="anonymous" onload="extrairPaletaCores(this)">
+        <canvas id="canvasProcessamento" style="display: none;"></canvas>
+    </section>
+
+    <h3 style="margin-top: 50px;">Paleta Extraída</h3>
+
+    <section id="paletaCores">
+        <p id="paletaCoresMensagem">Carregue uma imagem para ver as cores.</p>
+    </section>
+
+</div> 
+
+<script src="Funcao_Site.js"></script>
+
+</body>
+</html>
